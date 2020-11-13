@@ -81,8 +81,27 @@ class _UsersPageState extends State<UsersPage> {
   }
 
   Widget build(BuildContext context) {
+    var screenWidth = MediaQuery.of(context).size.width;
+    var screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: appBar,
+      drawer: Container(
+        color: Colors.white,
+        height: screenHeight,
+        width: screenWidth * 0.8,
+        child: Column(
+          children: [
+            FlatButton(
+              onPressed: () {
+                // For navigation
+                Navigator.pushNamed(context, '/row_flex_page');
+              },
+              child: Text("RowFlex Page"),
+            ),
+          ],
+        ),
+      ),
       body: SafeArea(
         child: SmartRefresher(
           enablePullDown: true,
